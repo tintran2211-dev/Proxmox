@@ -1,0 +1,6 @@
+nano /etc/apt/sources.list.d/pve-enterprise.list
+=> # deb https://enterprise.proxmox.com/debian/pve bookworm pve-enterprise
+
+nano /etc/apt/sources.list
+deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription
+

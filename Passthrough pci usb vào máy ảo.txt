@@ -1,0 +1,26 @@
+B1: Chạy lệnh: lspci -nn
+để tìm các thiết bị USB controller, ví dụ
+USB controller [0c03]: Intel Corporation C610/X99 series chipset USB Enhanced Host Controller #2 [8086:8d2d] (rev 05)
+USB controller [0c03]: Intel Corporation C610/X99 series chipset USB Enhanced Host Controller #1 [8086:8d26] (rev 05)
+
+B2: Tải kernel modules cần thiết
+nano /etc/modules
+thêm: 
+vfio
+vfio_iommu_type1
+vfio_pci
+vfio_virqfd
+
+B3: Lấy thông tin thiết bị và vendor gán driver cho VFIO
+lspci -n -s 00:1a.0
+trả ra: 00:1a.0 0c03: 8086:8d2d (rev 05)
+lspci -n -s 00:1d.0
+trả ra: 00:1d.0 0c03: 8086:8d26 (rev 05)
+echo "8086 8d2d" > /sys/bus/pci/drivers/vfio-pci/new_id
+echo "8086 8d26" > /sys/bus/pci/drivers/vfio-pci/new_id
+
+B4: sau đó sửa config máy ảo cần thêm passthrough thiết bị
+nano /etc/pve/qemu-server/100.conf
+ví thêm các thiết bị vào config: 
+hostpci0: 00:1a.0,pcie=1
+hostpci1: 00:1d.0,pcie=1

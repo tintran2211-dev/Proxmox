@@ -1,0 +1,51 @@
+VID="04e8"
+PID="6860"
+Serial: 5200b0ff4714a451 - Port Path: 2-1.1.1.4
+Serial: 5200408ac003c48b - Port Path: 2-1.1.2.1
+Serial: 5200f38ec06cc417 - Port Path: 2-1.1.2.2
+Serial: 520002efe2d32563 - Port Path: 2-1.1.5.1
+Serial: 5200b80548ff7409 - Port Path: 2-1.1.5.2
+Serial: 520079edfe5474d7 - Port Path: 2-1.1.5.3
+Serial: 52003356b240b473 - Port Path: 2-1.1.5.4
+Serial: 52006e33f4fcb45d - Port Path: 2-1.1.6.1
+Serial: 5200e910f432c49d - Port Path: 2-1.1.6.2
+Serial: 5200b8c1ea8c64a1 - Port Path: 2-1.1.6.4
+Serial: 5200bb71fa23749b - Port Path: 2-1.1.7.1
+Serial: 5200ca9aea82c4e1 - Port Path: 2-1.1.7.3
+Serial: 5200a174e255154f - Port Path: 2-1.3.1.2
+Serial: 5200fbb2fe329481 - Port Path: 2-1.3.1.3
+Serial: 520052515227250d - Port Path: 2-1.3.1.4
+Serial: 5200dee7b47f25af - Port Path: 2-1.3.2.1
+Serial: 5200b9b9bc2d546d - Port Path: 2-1.3.2.2
+Serial: 5200afdb4924a4f1 - Port Path: 2-1.3.2.3
+Serial: 5200092aee126435 - Port Path: 2-1.3.2.4
+Serial: 5200e8fcfe086439 - Port Path: 2-1.3.3.1
+Serial: 5200d5d6f49a8405 - Port Path: 2-1.3.3.2
+Serial: 52007ba8ec3f158f - Port Path: 2-1.3.3.3
+Serial: 520033e4ec1ec46f - Port Path: 2-1.3.3.4
+Serial: 5200b823e82e544d - Port Path: 2-1.3.4.3
+Serial: 5200ae7047479401 - Port Path: 2-1.3.4.4
+Serial: 5200c640fcdd641d - Port Path: 2-1.3.7.1
+Serial: 5200b4fdfea515c3 - Port Path: 2-1.3.7.2
+Serial: 52004b4eec30a40d - Port Path: 2-1.3.7.3
+Serial: 520080ce5a4f15af - Port Path: 2-1.3.7.4
+Serial: 5200b338fa2e7497 - Port Path: 2-1.6.1.1
+Serial: 52001ee3ecac9449 - Port Path: 2-1.6.2.1
+Serial: 52003e24ece474f1 - Port Path: 2-1.6.4.1
+
+VID="04e8"
+PID="685d"
+Serial: 4200b61806fb1533 - Port Path: 2-1.1.1.1
+Serial: 4200598cd678a47f - Port Path: 2-1.1.1.2
+Serial: 4200ba31d6599433 - Port Path: 2-1.1.1.3
+Serial: 4200b841d660b48d - Port Path: 2-1.1.2.3
+Serial: 4200c2d40699252b - Port Path: 2-1.1.2.4
+Serial: 42007353d03cb43b - Port Path: 2-1.1.6.3
+Serial: 4200c1d3062e25df - Port Path: 2-1.1.7.2
+Serial: 4200578fd095848d - Port Path: 2-1.1.7.4
+Serial: 420073d7d006b41f - Port Path: 2-1.3.1.1
+Serial: 4200037dd6eaa433 - Port Path: 2-1.3.4.1
+Serial: 4200c2c907152575 - Port Path: 2-1.3.4.2
+Serial: 42009b2acab2b43d - Port Path: 2-1.6.1.3
+Serial: 42008ac2ca6ab417 - Port Path: 2-1.6.3.1
+Serial: 4200563ad601a457 - Port Path: 2-1.6.3.3

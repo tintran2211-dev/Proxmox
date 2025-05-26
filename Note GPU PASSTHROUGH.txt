@@ -1,0 +1,58 @@
+Kiểm tra đã mở iommu chưa
+
+#Lấy thông tin card nvidia
+lspci | grep -i nvidia
+
+
+
+#Map địa chỉ  PCI của card đồ họa (VGA) và  PCI của card âm thanh tích hợp (HD Audio)
+lspci -n -s 84:00.0(VGA)
+lspci -n -s 84:00.1(HD Audio)
+84:00.0 0300: 10de:2503 (rev a1)
+84:00.1 0403: 10de:228e (rev a1)
+
+#Chỉnh grub
+nano /etc/default/grub
+GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt pcie_acs_override=downstream,multifunction pci=noaer video=efifb:off pci=realloc"
+update-grub
+update-initramfs -u -k all
+
+#Thêm config vào máy ảo 
+nano /etc/pve/qemu-server/107.conf
+
+
+#Dump filerom
+Cách 1: UEFI (OVMF) compatible
+git clone https://github.com/awilliam/rom-parser
+cd rom-parser
+make
+
+wget https://www.techpowerup.com/vgabios/231786/Inno3D.RTX3060.12288.210118.rom
+Tải file rom cho gpu: trên techgrupower, rồi sau đó test bằng lệnh:
+ví dụ: ./rom-parser /usr/share/kvm/Inno3D.RTX3060.12288.210118.rom
+nếu kết quả có type 3 thì hỗ trợ Loại 1, thực hiện bước tiếp theo
+
+cd /sys/bus/pci/devices/0000:01:00.0(địa chỉ pci của gpu)/
+echo 1 > rom
+cat rom > /tmp/image.rom(đường dẫn file rom)
+echo 0 > rom
+
+echo 1 > /sys/bus/pci/devices/0000:84:00.0/rom
+cat /sys/bus/pci/devices/0000:84:00.0/rom > /usr/share/kvm/Inno3D.RTX3060.12288.210118.rom
+echo 0 > /sys/bus/pci/devices/0000:84:00.0/rom
+
+Cách2: Dành cho các mainboard ko passthroug GPUs on the first PCI(e)
+echo 1 > /sys/bus/pci/devices/0000:84:00.0/rom
+cat /sys/bus/pci/devices/0000:84:00.0/rom > /usr/share/kvm/vbios.bin
+echo 0 > /sys/bus/pci/devices/0000:84:00.0/rom
+
+
+#Tắt video cho để ko lưu vào bộ đệmm gây ra lỗi
+echo 0 > /sys/class/vtconsole/vtcon0/bind
+echo 0 > /sys/class/vtconsole/vtcon1/bind
+echo efi-framebuffer.0 > /sys/bus/platform/drivers/efi-framebuffer/unbind
+
+#Checklog
+journalctl -xe
+
+

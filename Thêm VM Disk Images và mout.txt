@@ -1,0 +1,18 @@
+# Format /dev/sda
+parted /dev/sda -- mklabel gpt
+parted /dev/sda -- mkpart primary ext4 0% 100%
+mkfs.ext4 /dev/sda1
+
+# Format /dev/sdc
+parted /dev/sdc -- mklabel gpt
+parted /dev/sdc -- mkpart primary ext4 0% 100%
+mkfs.ext4 /dev/sdc1
+
+mkdir -p /mnt/vm-storage1
+mkdir -p /mnt/vm-storage2
+
+mount /dev/sda1 /mnt/vm-storage1
+mount /dev/sdc1 /mnt/vm-storage2
+
+echo "/dev/sda1 /mnt/vm-storage1 ext4 defaults 0 2" >> /etc/fstab
+echo "/dev/sdc1 /mnt/vm-storage2 ext4 defaults 0 2" >> /etc/fstab
