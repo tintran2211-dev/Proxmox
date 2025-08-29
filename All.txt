@@ -9,11 +9,6 @@ nano ~/.bashrc
 alias cls='clear'
 source ~/.bashrc
 
-# Forward port 2222 trên host Proxmox tới port 22 của máy ảo
-iptables -t nat -A PREROUTING -p tcp --dport 2222 -j DNAT --to-destination 192.168.1.201:22
-iptables -t nat -A POSTROUTING -d 192.168.1.201 -p tcp --dport 22 -j MASQUERADE
-
-
 #Tắt enterpise proxmox
 nano /etc/apt/sources.list.d/ceph.list
 comment dòng như này: #deb https://enterprise.proxmox.com/debian/ceph-quincy bookworm enterprise
